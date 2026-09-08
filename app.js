@@ -2452,7 +2452,7 @@ function renderExpPlayerHistory(playerId) {
   history.forEach((entry) => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td class="map-cell">${escapeHtml(entry.map)}</td>
+      <td class="map-cell">${escapeHtml(entry.map)}${entry.isGoat ? getGoatStarMarkup() : ""}</td>
       <td class="score-cell">${entry.teamRounds}x${entry.enemyRounds}</td>
       <td class="stat-number">${entry.kills}</td>
       <td class="stat-number">${entry.assists}</td>
@@ -2488,6 +2488,7 @@ function getExpPlayerMatchHistory(playerId) {
         kda: calculateKda(stats.kills, stats.assists, stats.deaths),
         score: stats.score,
         mvp: stats.mvp,
+        isGoat: getExpGoatId(match) === playerId,
         status,
       };
     });
