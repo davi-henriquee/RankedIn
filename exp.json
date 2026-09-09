@@ -1,7 +1,7 @@
 {
   "app": "CS RANKED",
   "version": 1,
-  "exportedAt": "2026-09-08T16:11:15.483Z",
+  "exportedAt": "2026-09-09T16:09:34.735Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -20,52 +20,44 @@
           "map": "cache",
           "teamAIds": [
             "davi",
-            "pedro"
+            "vinicius"
           ],
           "teamBIds": [
-            "vinicius",
-            "vini",
-            "cicero"
+            "cicero",
+            "pedro"
           ],
-          "status": "pending",
-          "result": null,
-          "teamARounds": null,
-          "teamBRounds": null,
+          "status": "completed",
+          "result": "teamB",
+          "teamARounds": 7,
+          "teamBRounds": 9,
           "playerStats": {
             "davi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "pedro": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 12,
+              "deaths": 10,
+              "assists": 2,
+              "mvp": 3,
+              "score": 34
             },
             "vinicius": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "vini": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 4,
+              "deaths": 12,
+              "assists": 2,
+              "mvp": 1,
+              "score": 32
             },
             "cicero": {
-              "kills": 0,
-              "deaths": 0,
+              "kills": 12,
+              "deaths": 9,
               "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "mvp": 2,
+              "score": 35
+            },
+            "pedro": {
+              "kills": 8,
+              "deaths": 12,
+              "assists": 5,
+              "mvp": 1,
+              "score": 31
             }
           }
         },
