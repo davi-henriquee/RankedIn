@@ -1,7 +1,7 @@
 {
   "app": "CS RANKED",
   "version": 1,
-  "exportedAt": "2026-09-10T12:38:47.469Z",
+  "exportedAt": "2026-09-11T21:26:27.788Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -15,15 +15,15 @@
     "exp": {
       "matches": [
         {
-          "id": "b721ed13-a4d6-48a9-a2b4-0e87191342ea",
-          "createdAt": "2026-09-10T12:38:25.122Z",
-          "map": "vertigo",
+          "id": "daaf7a83-762e-410a-9be0-5878cf08dc7e",
+          "createdAt": "2026-09-11T21:26:15.451Z",
+          "map": "mirage",
           "teamAIds": [
             "davi",
-            "cicero",
-            "pedro"
+            "cicero"
           ],
           "teamBIds": [
+            "pedro",
             "vinicius",
             "vini"
           ],
@@ -66,6 +66,53 @@
               "assists": 0,
               "mvp": 0,
               "score": 0
+            }
+          }
+        },
+        {
+          "id": "b721ed13-a4d6-48a9-a2b4-0e87191342ea",
+          "createdAt": "2026-09-10T12:38:25.122Z",
+          "map": "vertigo",
+          "teamAIds": [
+            "davi",
+            "vinicius"
+          ],
+          "teamBIds": [
+            "cicero",
+            "pedro"
+          ],
+          "status": "completed",
+          "result": "teamA",
+          "teamARounds": 13,
+          "teamBRounds": 5,
+          "playerStats": {
+            "davi": {
+              "kills": 26,
+              "deaths": 11,
+              "assists": 1,
+              "mvp": 6,
+              "score": 53
+            },
+            "vinicius": {
+              "kills": 8,
+              "deaths": 16,
+              "assists": 1,
+              "mvp": 1,
+              "score": 17
+            },
+            "cicero": {
+              "kills": 12,
+              "deaths": 15,
+              "assists": 1,
+              "mvp": 2,
+              "score": 25
+            },
+            "pedro": {
+              "kills": 12,
+              "deaths": 15,
+              "assists": 1,
+              "mvp": 2,
+              "score": 25
             }
           }
         },
