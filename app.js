@@ -105,7 +105,7 @@ const defaultState = {
 
 let state = loadState();
 let selectedMatchId = null;
-let activeView = "ranking";
+let activeView = "exp";
 let activeEsportsTab = "competitive";
 let editingTeamId = null;
 let editingPlayerId = null;

@@ -21,13 +21,17 @@
           <h1>Expertise Ranked</h1>
         </div>
 
-        <button class="primary-action" id="generateMatchBtn" type="button">
+        <button class="primary-action" id="generateMatchBtn" type="button" hidden>
           <span aria-hidden="true">+</span>
           Generate match
         </button>
       </section>
 
-      <section class="app-view active" id="rankingView" aria-label="Off ranked history">
+      <nav class="app-tabs" aria-label="Main navigation">
+        <button class="app-tab active" type="button" data-view="exp">RANKED</button>
+      </nav>
+
+      <section class="app-view" id="rankingView" aria-label="Off ranked history" hidden>
         <section class="rank-grid" aria-label="Current ranking">
           <article class="rank-panel">
             <div class="rank-header">
@@ -290,7 +294,7 @@
         </section>
       </section>
 
-      <section class="app-view" id="expView" aria-label="RANKED" hidden>
+      <section class="app-view active" id="expView" aria-label="RANKED">
         <section class="exp-section">
           <div class="section-title">
             <div>
@@ -649,6 +653,6 @@
       </form>
     </dialog>
 
-    <script src="app.js?v=20260914-off-ranked-only"></script>
+    <script src="app.js?v=20260914-expertise-brand"></script>
   </body>
 </html>
