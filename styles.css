@@ -540,6 +540,10 @@ tbody tr td:first-child {
   margin-top: 20px;
 }
 
+.exp-toolbar {
+  justify-content: flex-end;
+}
+
 .competitive-section {
   margin-top: 0;
 }

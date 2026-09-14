@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expertise Ranked</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260914-expertise-brand" />
+    <link rel="stylesheet" href="styles.css?v=20260914-ranked-cleanup" />
   </head>
   <body>
     <main class="app-shell">
@@ -26,10 +26,6 @@
           Generate match
         </button>
       </section>
-
-      <nav class="app-tabs" aria-label="Main navigation">
-        <button class="app-tab active" type="button" data-view="exp">RANKED</button>
-      </nav>
 
       <section class="app-view" id="rankingView" aria-label="Off ranked history" hidden>
         <section class="rank-grid" aria-label="Current ranking">
@@ -296,11 +292,7 @@
 
       <section class="app-view active" id="expView" aria-label="RANKED">
         <section class="exp-section">
-          <div class="section-title">
-            <div>
-              <p class="panel-label">RANKED</p>
-              <h2>Player matches</h2>
-            </div>
+          <div class="section-title exp-toolbar">
             <div class="section-actions">
               <button class="primary-action" id="generateExpMatchBtn" type="button">
                 <span aria-hidden="true">+</span>
