@@ -3,15 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CS RANKED</title>
+    <title>Expertise Ranked</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260901-quadrimester-awards" />
+    <link rel="stylesheet" href="styles.css?v=20260914-expertise-brand" />
   </head>
   <body>
     <main class="app-shell">
       <section class="topbar" aria-label="Ranking summary">
         <div class="brand-block">
-          <h1>CS RANKED</h1>
+          <img
+            class="brand-logo"
+            src="assets/expertise-logo.png"
+            alt="Expertise"
+            width="68"
+            height="68"
+          />
+          <h1>Expertise Ranked</h1>
         </div>
 
         <button class="primary-action" id="generateMatchBtn" type="button" hidden>
@@ -22,7 +29,6 @@
 
       <nav class="app-tabs" aria-label="Main navigation">
         <button class="app-tab active" type="button" data-view="exp">RANKED</button>
-        <button class="app-tab" type="button" data-view="ranking">OFF RANKED</button>
       </nav>
 
       <section class="app-view" id="rankingView" aria-label="Off ranked history" hidden>
@@ -647,6 +653,6 @@
       </form>
     </dialog>
 
-    <script src="app.js?v=20260908-goat-history"></script>
+    <script src="app.js?v=20260914-expertise-brand"></script>
   </body>
 </html>

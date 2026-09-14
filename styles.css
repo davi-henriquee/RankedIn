@@ -77,11 +77,29 @@ button {
   border-bottom: 1px solid var(--line);
 }
 
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.brand-logo {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  padding: 4px;
+  border: 1px solid rgba(143, 197, 80, 0.42);
+  border-radius: 8px;
+  object-fit: contain;
+  background: #ffffff;
+  box-shadow: 0 0 24px rgba(143, 197, 80, 0.16);
+}
+
 .brand-block h1 {
   margin: 2px 0 0;
-  font-size: 3.8rem;
+  font-size: 3.4rem;
   line-height: 0.95;
-  text-transform: uppercase;
 }
 
 .eyebrow,
@@ -1971,8 +1989,19 @@ textarea {
 }
 
 @media (max-width: 680px) {
+  .brand-block {
+    gap: 10px;
+  }
+
+  .brand-logo {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+    padding: 3px;
+  }
+
   .brand-block h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   .ranked-team-panel .team-title {
