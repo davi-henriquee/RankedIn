@@ -73,10 +73,7 @@
                 <h2>Matches</h2>
               </div>
               <div class="section-actions">
-                <button class="ghost-action" id="exportBackupBtn" type="button">Export backup</button>
-                <button class="ghost-action" id="importBackupBtn" type="button">Import backup</button>
                 <button class="ghost-action" id="resetDataBtn" type="button">Clear all</button>
-                <input id="backupFileInput" type="file" accept="application/json,.json" hidden />
               </div>
             </div>
 
@@ -294,6 +291,9 @@
         <section class="exp-section">
           <div class="section-title exp-toolbar">
             <div class="section-actions">
+              <button class="ghost-action" id="exportBackupBtn" type="button">Export JSON</button>
+              <button class="ghost-action" id="importBackupBtn" type="button">Import JSON</button>
+              <input id="backupFileInput" type="file" accept="application/json,.json" hidden />
               <button class="primary-action" id="generateExpMatchBtn" type="button">
                 <span aria-hidden="true">+</span>
                 Generate match
