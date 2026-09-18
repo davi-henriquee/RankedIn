@@ -1,7 +1,7 @@
 {
-  "app": "CS RANKED",
+  "app": "Expertise Ranked",
   "version": 1,
-  "exportedAt": "2026-09-11T21:26:27.788Z",
+  "exportedAt": "2026-09-18T16:19:30.607Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -15,37 +15,23 @@
     "exp": {
       "matches": [
         {
-          "id": "daaf7a83-762e-410a-9be0-5878cf08dc7e",
-          "createdAt": "2026-09-11T21:26:15.451Z",
-          "map": "mirage",
+          "id": "443d06d2-b327-4e0d-b60e-e19226383181",
+          "createdAt": "2026-09-18T16:19:26.517Z",
+          "map": "inferno",
           "teamAIds": [
-            "davi",
-            "cicero"
-          ],
-          "teamBIds": [
             "pedro",
             "vinicius",
             "vini"
+          ],
+          "teamBIds": [
+            "davi",
+            "cicero"
           ],
           "status": "pending",
           "result": null,
           "teamARounds": null,
           "teamBRounds": null,
           "playerStats": {
-            "davi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "cicero": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
             "pedro": {
               "kills": 0,
               "deaths": 0,
@@ -66,6 +52,75 @@
               "assists": 0,
               "mvp": 0,
               "score": 0
+            },
+            "davi": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "cicero": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            }
+          }
+        },
+        {
+          "id": "daaf7a83-762e-410a-9be0-5878cf08dc7e",
+          "createdAt": "2026-09-11T21:26:15.451Z",
+          "map": "mirage",
+          "teamAIds": [
+            "davi",
+            "pedro"
+          ],
+          "teamBIds": [
+            "vinicius",
+            "vini",
+            "cicero"
+          ],
+          "status": "completed",
+          "result": "teamA",
+          "teamARounds": 13,
+          "teamBRounds": 7,
+          "playerStats": {
+            "davi": {
+              "kills": 20,
+              "deaths": 10,
+              "assists": 2,
+              "mvp": 4,
+              "score": 46
+            },
+            "pedro": {
+              "kills": 12,
+              "deaths": 10,
+              "assists": 4,
+              "mvp": 1,
+              "score": 34
+            },
+            "vinicius": {
+              "kills": 5,
+              "deaths": 19,
+              "assists": 1,
+              "mvp": 1,
+              "score": 13
+            },
+            "vini": {
+              "kills": 20,
+              "deaths": 16,
+              "assists": 3,
+              "mvp": 1,
+              "score": 46
+            },
+            "cicero": {
+              "kills": 2,
+              "deaths": 17,
+              "assists": 6,
+              "mvp": 0,
+              "score": 11
             }
           }
         },
