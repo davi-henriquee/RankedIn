@@ -1,7 +1,7 @@
 {
   "app": "Expertise Ranked",
   "version": 1,
-  "exportedAt": "2026-09-18T16:19:30.607Z",
+  "exportedAt": "2026-09-18T20:00:49.830Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -20,12 +20,11 @@
           "map": "inferno",
           "teamAIds": [
             "pedro",
-            "vinicius",
-            "vini"
+            "vinicius"
           ],
           "teamBIds": [
             "davi",
-            "cicero"
+            "vini"
           ],
           "status": "pending",
           "result": null,
@@ -54,13 +53,6 @@
               "score": 0
             },
             "davi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "cicero": {
               "kills": 0,
               "deaths": 0,
               "assists": 0,
