@@ -1,7 +1,7 @@
 {
   "app": "Expertise Ranked",
   "version": 1,
-  "exportedAt": "2026-09-21T16:11:30.338Z",
+  "exportedAt": "2026-09-21T21:16:07.741Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -15,37 +15,23 @@
     "exp": {
       "matches": [
         {
-          "id": "4041ae19-1417-4fec-8d3f-17292f73d2e9",
-          "createdAt": "2026-09-21T16:11:22.590Z",
-          "map": "inferno",
+          "id": "6699d0e5-863b-4436-9367-72b33b46ffbc",
+          "createdAt": "2026-09-21T21:16:05.362Z",
+          "map": "anubis",
           "teamAIds": [
-            "pedro",
-            "vinicius"
-          ],
-          "teamBIds": [
             "vini",
             "davi",
             "cicero"
+          ],
+          "teamBIds": [
+            "pedro",
+            "vinicius"
           ],
           "status": "pending",
           "result": null,
           "teamARounds": null,
           "teamBRounds": null,
           "playerStats": {
-            "pedro": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "vinicius": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
             "vini": {
               "kills": 0,
               "deaths": 0,
@@ -63,6 +49,67 @@
             "cicero": {
               "kills": 0,
               "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "pedro": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "vinicius": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            }
+          }
+        },
+        {
+          "id": "4041ae19-1417-4fec-8d3f-17292f73d2e9",
+          "createdAt": "2026-09-21T16:11:22.590Z",
+          "map": "inferno",
+          "teamAIds": [
+            "vinicius",
+            "davi"
+          ],
+          "teamBIds": [
+            "vini",
+            "cicero"
+          ],
+          "status": "completed",
+          "result": "teamA",
+          "teamARounds": 10,
+          "teamBRounds": 4,
+          "playerStats": {
+            "vinicius": {
+              "kills": 4,
+              "deaths": 7,
+              "assists": 3,
+              "mvp": 0,
+              "score": 18
+            },
+            "davi": {
+              "kills": 19,
+              "deaths": 9,
+              "assists": 1,
+              "mvp": 6,
+              "score": 45
+            },
+            "vini": {
+              "kills": 0,
+              "deaths": 10,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "cicero": {
+              "kills": 0,
+              "deaths": 10,
               "assists": 0,
               "mvp": 0,
               "score": 0
