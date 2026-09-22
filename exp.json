@@ -1,7 +1,7 @@
 {
   "app": "Expertise Ranked",
   "version": 1,
-  "exportedAt": "2026-09-21T21:16:07.741Z",
+  "exportedAt": "2026-09-22T14:26:53.657Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -15,17 +15,72 @@
     "exp": {
       "matches": [
         {
-          "id": "6699d0e5-863b-4436-9367-72b33b46ffbc",
-          "createdAt": "2026-09-21T21:16:05.362Z",
-          "map": "anubis",
+          "id": "cc2e51db-d478-4dd1-920e-7d9d692cf170",
+          "createdAt": "2026-09-22T14:26:37.496Z",
+          "map": "tuscan",
           "teamAIds": [
-            "vini",
+            "vinicius",
             "davi",
             "cicero"
           ],
           "teamBIds": [
             "pedro",
+            "vini"
+          ],
+          "status": "pending",
+          "result": null,
+          "teamARounds": null,
+          "teamBRounds": null,
+          "playerStats": {
+            "vinicius": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "davi": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "cicero": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "pedro": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "vini": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            }
+          }
+        },
+        {
+          "id": "6699d0e5-863b-4436-9367-72b33b46ffbc",
+          "createdAt": "2026-09-21T21:16:05.362Z",
+          "map": "anubis",
+          "teamAIds": [
+            "vini",
             "vinicius"
+          ],
+          "teamBIds": [
+            "pedro",
+            "davi",
+            "cicero"
           ],
           "status": "pending",
           "result": null,
