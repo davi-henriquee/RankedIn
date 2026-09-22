@@ -1,7 +1,7 @@
 {
   "app": "Expertise Ranked",
   "version": 1,
-  "exportedAt": "2026-09-22T14:26:53.657Z",
+  "exportedAt": "2026-09-22T16:10:54.435Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -14,6 +14,61 @@
     },
     "exp": {
       "matches": [
+        {
+          "id": "82cfde89-e470-41aa-bc93-c31c8eeca62e",
+          "createdAt": "2026-09-22T16:10:52.082Z",
+          "map": "ancient",
+          "teamAIds": [
+            "davi",
+            "cicero"
+          ],
+          "teamBIds": [
+            "pedro",
+            "vinicius",
+            "vini"
+          ],
+          "status": "pending",
+          "result": null,
+          "teamARounds": null,
+          "teamBRounds": null,
+          "playerStats": {
+            "davi": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "cicero": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "pedro": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "vinicius": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "vini": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            }
+          }
+        },
         {
           "id": "cc2e51db-d478-4dd1-920e-7d9d692cf170",
           "createdAt": "2026-09-22T14:26:37.496Z",
@@ -82,45 +137,45 @@
             "davi",
             "cicero"
           ],
-          "status": "pending",
-          "result": null,
-          "teamARounds": null,
-          "teamBRounds": null,
+          "status": "completed",
+          "result": "teamB",
+          "teamARounds": 1,
+          "teamBRounds": 13,
           "playerStats": {
             "vini": {
               "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "davi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "cicero": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "pedro": {
-              "kills": 0,
-              "deaths": 0,
+              "deaths": 10,
               "assists": 0,
               "mvp": 0,
               "score": 0
             },
             "vinicius": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
+              "kills": 2,
+              "deaths": 14,
+              "assists": 2,
               "mvp": 0,
-              "score": 0
+              "score": 6
+            },
+            "pedro": {
+              "kills": 11,
+              "deaths": 5,
+              "assists": 2,
+              "mvp": 5,
+              "score": 32
+            },
+            "davi": {
+              "kills": 21,
+              "deaths": 5,
+              "assists": 1,
+              "mvp": 4,
+              "score": 52
+            },
+            "cicero": {
+              "kills": 9,
+              "deaths": 7,
+              "assists": 3,
+              "mvp": 0,
+              "score": 23
             }
           }
         },
