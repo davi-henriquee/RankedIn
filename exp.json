@@ -1,7 +1,7 @@
 {
   "app": "Expertise Ranked",
   "version": 1,
-  "exportedAt": "2026-09-22T16:10:54.435Z",
+  "exportedAt": "2026-09-23T15:59:34.909Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -15,17 +15,72 @@
     "exp": {
       "matches": [
         {
+          "id": "14d4ad57-c6b9-4484-a89b-685e94665d4d",
+          "createdAt": "2026-09-23T15:59:12.777Z",
+          "map": "cache",
+          "teamAIds": [
+            "vinicius",
+            "cicero",
+            "vini"
+          ],
+          "teamBIds": [
+            "pedro",
+            "davi"
+          ],
+          "status": "pending",
+          "result": null,
+          "teamARounds": null,
+          "teamBRounds": null,
+          "playerStats": {
+            "vinicius": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "cicero": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "pedro": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "vini": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "davi": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            }
+          }
+        },
+        {
           "id": "82cfde89-e470-41aa-bc93-c31c8eeca62e",
           "createdAt": "2026-09-22T16:10:52.082Z",
           "map": "ancient",
           "teamAIds": [
             "davi",
-            "cicero"
+            "vinicius"
           ],
           "teamBIds": [
             "pedro",
-            "vinicius",
-            "vini"
+            "vini",
+            "cicero"
           ],
           "status": "pending",
           "result": null,
@@ -74,53 +129,53 @@
           "createdAt": "2026-09-22T14:26:37.496Z",
           "map": "tuscan",
           "teamAIds": [
-            "vinicius",
             "davi",
-            "cicero"
+            "vini"
           ],
           "teamBIds": [
             "pedro",
-            "vini"
+            "vinicius",
+            "cicero"
           ],
-          "status": "pending",
-          "result": null,
-          "teamARounds": null,
-          "teamBRounds": null,
+          "status": "completed",
+          "result": "teamA",
+          "teamARounds": 13,
+          "teamBRounds": 9,
           "playerStats": {
-            "vinicius": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
             "davi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "cicero": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "pedro": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 32,
+              "deaths": 13,
+              "assists": 4,
+              "mvp": 5,
+              "score": 77
             },
             "vini": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 20,
+              "deaths": 15,
+              "assists": 9,
+              "mvp": 4,
+              "score": 55
+            },
+            "pedro": {
+              "kills": 11,
+              "deaths": 17,
+              "assists": 2,
+              "mvp": 2,
+              "score": 25
+            },
+            "vinicius": {
+              "kills": 4,
+              "deaths": 20,
+              "assists": 4,
+              "mvp": 1,
+              "score": 16
+            },
+            "cicero": {
+              "kills": 13,
+              "deaths": 19,
+              "assists": 2,
+              "mvp": 2,
+              "score": 30
             }
           }
         },
