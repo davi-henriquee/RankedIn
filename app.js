@@ -468,7 +468,7 @@ function switchExpTab(tab) {
 
 function exportBackup() {
   const backup = {
-    app: "Expertise Ranked",
+    app: "RankedIn",
     version: BACKUP_VERSION,
     exportedAt: new Date().toISOString(),
     data: state,
