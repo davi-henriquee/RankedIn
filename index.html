@@ -6,10 +6,17 @@
     <title>RankedIn</title>
     <link rel="icon" type="image/png" href="assets/rankedin-logo.png?v=20260923-white" />
     <link rel="stylesheet" href="styles.css?v=20260923-rankedin-white" />
+    <link rel="stylesheet" href="cs2-theme.css?v=20260923" />
   </head>
   <body>
     <main class="app-shell">
       <section class="topbar" aria-label="Ranking summary">
+        <img
+          class="hero-operators"
+          src="assets/cs2-operators.png"
+          alt=""
+          aria-hidden="true"
+        />
         <div class="brand-block">
           <img
             class="brand-logo"
@@ -18,7 +25,10 @@
             width="68"
             height="68"
           />
-          <h1>RankedIn</h1>
+          <div class="brand-copy">
+            <p>Counter-Strike 2</p>
+            <h1>RankedIn</h1>
+          </div>
         </div>
 
         <button class="primary-action" id="generateMatchBtn" type="button" hidden>
