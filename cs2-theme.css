@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Stratum2";
-  src: url("https://cdn.fastly.steamstatic.com/apps/csgo/fonts/Stratum2WebRegular.woff2") format("woff2");
+  src: url("assets/fonts/Stratum2WebRegular.woff2") format("woff2");
   font-display: swap;
   font-style: normal;
   font-weight: 400;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Stratum2";
-  src: url("https://cdn.fastly.steamstatic.com/apps/csgo/fonts/Stratum2WebBold.woff2") format("woff2");
+  src: url("assets/fonts/Stratum2WebBold.woff2") format("woff2");
   font-display: swap;
   font-style: normal;
   font-weight: 700;
@@ -16,7 +16,15 @@
 
 @font-face {
   font-family: "Stratum2 Condensed";
-  src: url("https://cdn.fastly.steamstatic.com/apps/csgo/fonts/Stratum2WebBoldCondensed.woff2") format("woff2");
+  src: url("assets/fonts/Stratum2WebRegularCondensed.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Stratum2 Condensed";
+  src: url("assets/fonts/Stratum2WebBoldCondensed.woff2") format("woff2");
   font-display: swap;
   font-style: normal;
   font-weight: 700;
@@ -78,6 +86,19 @@ input,
 select,
 textarea {
   font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+button,
+.panel-label,
+.status-pill,
+.history-status,
+.season-status,
+.feed-tag,
+.map-pool-header > span {
+  font-family: "Stratum2 Condensed", "Arial Narrow", sans-serif;
 }
 
 button:focus-visible,
@@ -1260,20 +1281,24 @@ input[type="number"]::-webkit-outer-spin-button {
   text-transform: uppercase;
 }
 
-.site-nav-mark > span {
-  padding: 5px 8px 3px;
+.site-nav-mark > h1 {
+  margin: 0;
   color: #ffffff;
-  background: #202733;
+  font-family: "Stratum2 Condensed", "Arial Narrow", sans-serif;
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1;
+  text-shadow: 2px 2px 0 rgba(18, 23, 31, 0.75);
 }
 
 .site-nav-mark .brand-logo {
   width: 48px;
   height: 48px;
   flex-basis: 48px;
-  padding: 4px;
-  border: 1px solid rgba(31, 38, 48, 0.48);
-  background: #ffffff;
-  box-shadow: 5px 5px 0 rgba(31, 38, 48, 0.16);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .hero-actions {
@@ -1316,43 +1341,16 @@ input[type="number"]::-webkit-outer-spin-button {
   position: relative;
   z-index: 3;
   display: grid;
-  justify-items: start;
-  width: fit-content;
-  margin: 72px 5% 0 auto;
+  justify-items: end;
+  width: min(560px, 46vw);
+  margin: 82px 3% 0 auto;
   color: #202733;
 }
 
-.hero-copy p,
-.hero-copy span {
-  margin: 0;
-  font-family: "Stratum2 Condensed", "Arial Narrow", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.hero-copy p {
-  padding: 6px 10px 4px;
-  color: #ffffff;
-  background: #202733;
-}
-
-.hero-copy h1 {
-  margin: 5px 0 0;
-  color: #202733;
-  font-family: "Stratum2 Condensed", "Arial Narrow", sans-serif;
-  font-size: clamp(5rem, 8vw, 8.7rem);
-  font-style: italic;
-  font-weight: 700;
-  line-height: 0.78;
-  text-transform: none;
-  text-shadow: 4px 4px 0 rgba(255, 255, 255, 0.28);
-}
-
-.hero-copy span {
-  margin-top: 13px;
-  color: rgba(32, 39, 51, 0.75);
-  font-size: 1.18rem;
+.cs2-wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .topbar > .exp-tabs {
@@ -1703,7 +1701,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .ranking-entry {
   position: relative;
   display: grid;
-  grid-template-columns: 78px minmax(190px, 1.7fr) repeat(7, minmax(72px, 0.72fr)) 38px;
+  grid-template-columns: 78px minmax(190px, 1.7fr) repeat(6, minmax(72px, 0.72fr)) 38px;
   align-items: stretch;
   min-height: 102px;
   color: var(--text);
@@ -1871,6 +1869,21 @@ input[type="number"]::-webkit-outer-spin-button {
   text-transform: uppercase;
 }
 
+.history-status.win {
+  color: #69d27f;
+  border-color: rgba(105, 210, 127, 0.72);
+  background: rgba(105, 210, 127, 0.11);
+}
+
+.exp-detail-stat.win-stat {
+  border-color: rgba(105, 210, 127, 0.45);
+  background: rgba(105, 210, 127, 0.08);
+}
+
+.exp-detail-stat.win-stat strong {
+  color: #69d27f;
+}
+
 @media (max-width: 1120px) {
   .hero-copy {
     margin-right: 2%;
@@ -1890,7 +1903,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .ranking-entry {
-    grid-template-columns: 66px minmax(170px, 1.5fr) repeat(7, minmax(62px, 0.72fr)) 30px;
+    grid-template-columns: 66px minmax(170px, 1.5fr) repeat(6, minmax(62px, 0.72fr)) 30px;
   }
 
   .ranking-position,
@@ -1948,8 +1961,8 @@ input[type="number"]::-webkit-outer-spin-button {
     min-height: 68px;
   }
 
-  .site-nav-mark span {
-    display: none;
+  .site-nav-mark h1 {
+    font-size: 1.45rem;
   }
 
   .site-nav-mark .brand-logo {
@@ -1993,18 +2006,9 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .hero-copy {
-    margin-top: 105px;
+    width: min(255px, 67vw);
+    margin-top: 118px;
     margin-right: 0;
-  }
-
-  .hero-copy h1 {
-    font-size: clamp(3.3rem, 15vw, 5rem);
-    color: #ffffff;
-    text-shadow: 3px 3px 0 rgba(32, 39, 51, 0.78);
-  }
-
-  .hero-copy span {
-    color: rgba(255, 255, 255, 0.88);
   }
 
   .topbar > .exp-tabs {
@@ -2161,12 +2165,13 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 0.56rem;
   }
 
-  .hero-copy p {
-    font-size: 0.72rem;
+  .site-nav-mark .brand-logo {
+    display: none;
   }
 
-  .hero-copy span {
-    font-size: 0.9rem;
+  .site-nav-mark h1 {
+    display: block;
+    font-size: 1.2rem;
   }
 
   .match-versus {

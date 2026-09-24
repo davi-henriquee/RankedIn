@@ -1569,7 +1569,6 @@ function renderExpRanking() {
       ${getRankingMetricMarkup("KDA", formatKda(entry.kda))}
       ${getRankingMetricMarkup("Score", entry.score)}
       ${getRankingMetricMarkup("MVP", entry.mvp)}
-      ${getRankingMetricMarkup("GOATs", entry.goats)}
       <span class="ranking-open" aria-hidden="true">›</span>
     `;
     elements.expRankingList.appendChild(card);
@@ -2272,7 +2271,6 @@ function calculateExpPlayerStats(playerId) {
     assists: 0,
     mvp: 0,
     score: 0,
-    goats: 0,
     winRate: 0,
     kda: 0,
   };
@@ -2299,9 +2297,6 @@ function calculateExpPlayerStats(playerId) {
       stats.losses += 1;
     }
 
-    if (getExpGoatId(match) === playerId) {
-      stats.goats += 1;
-    }
   });
 
   const decisiveMatches = stats.wins + stats.losses;
@@ -2399,7 +2394,6 @@ function renderExpPlayerDetail() {
     ${getExpDetailSectionMarkup([
       ["Score", stats.score],
       ["MVP", stats.mvp],
-      ["GOATs", stats.goats],
     ])}
   `;
   renderExpPlayerMapPerformance(selectedExpPlayerId);
@@ -2499,8 +2493,9 @@ function getExpDetailSectionMarkup(items) {
 }
 
 function getExpDetailStatMarkup(label, value) {
+  const isWinStat = label === "Matches won";
   return `
-    <article class="stat-panel exp-detail-stat">
+    <article class="stat-panel exp-detail-stat${isWinStat ? " win-stat" : ""}">
       <p class="panel-label">${escapeHtml(label)}</p>
       <strong>${escapeHtml(value)}</strong>
     </article>
