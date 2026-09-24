@@ -6,29 +6,50 @@
     <title>RankedIn</title>
     <link rel="icon" type="image/png" href="assets/rankedin-logo.png?v=20260923-white" />
     <link rel="stylesheet" href="styles.css?v=20260923-rankedin-white" />
-    <link rel="stylesheet" href="cs2-theme.css?v=20260923" />
+    <link rel="stylesheet" href="cs2-theme.css?v=20260923-v2" />
   </head>
   <body>
     <main class="app-shell">
-      <section class="topbar" aria-label="Ranking summary">
+      <section class="topbar" aria-label="RankedIn match center">
+        <div class="site-nav">
+          <div class="site-nav-mark">
+            <img
+              class="brand-logo"
+              src="assets/rankedin-logo.png?v=20260923-white"
+              alt="RankedIn"
+              width="54"
+              height="54"
+            />
+            <span>Counter-Strike 2</span>
+          </div>
+
+          <div class="section-actions hero-actions">
+            <button class="ghost-action" id="exportBackupBtn" type="button">Export JSON</button>
+            <button class="ghost-action" id="importBackupBtn" type="button">Import JSON</button>
+            <input id="backupFileInput" type="file" accept="application/json,.json" hidden />
+            <button class="primary-action" id="generateExpMatchBtn" type="button">
+              <span aria-hidden="true">+</span>
+              Generate match
+            </button>
+          </div>
+        </div>
+
         <img
           class="hero-operators"
           src="assets/cs2-operators.png"
           alt=""
           aria-hidden="true"
         />
-        <div class="brand-block">
-          <img
-            class="brand-logo"
-            src="assets/rankedin-logo.png?v=20260923-white"
-            alt="RankedIn"
-            width="68"
-            height="68"
-          />
-          <div class="brand-copy">
-            <p>Counter-Strike 2</p>
-            <h1>RankedIn</h1>
-          </div>
+        <div class="hero-copy">
+          <p>Competitive community</p>
+          <h1>RankedIn</h1>
+          <span>Match center</span>
+        </div>
+
+        <div class="sub-tabs exp-tabs" role="group" aria-label="RANKED area">
+          <button class="sub-tab active" type="button" data-exp-tab="matches">Matches</button>
+          <button class="sub-tab" type="button" data-exp-tab="ranking">Ranking</button>
+          <button class="sub-tab" type="button" data-exp-tab="history">History</button>
         </div>
 
         <button class="primary-action" id="generateMatchBtn" type="button" hidden>
@@ -299,43 +320,18 @@
 
       <section class="app-view active" id="expView" aria-label="RANKED">
         <section class="exp-section">
-          <div class="section-title exp-toolbar">
-            <div class="section-actions">
-              <button class="ghost-action" id="exportBackupBtn" type="button">Export JSON</button>
-              <button class="ghost-action" id="importBackupBtn" type="button">Import JSON</button>
-              <input id="backupFileInput" type="file" accept="application/json,.json" hidden />
-              <button class="primary-action" id="generateExpMatchBtn" type="button">
-                <span aria-hidden="true">+</span>
-                Generate match
-              </button>
-            </div>
-          </div>
-
-          <div class="sub-tabs exp-tabs" role="group" aria-label="RANKED area">
-            <button class="sub-tab active" type="button" data-exp-tab="matches">Matches</button>
-            <button class="sub-tab" type="button" data-exp-tab="ranking">Ranking</button>
-            <button class="sub-tab" type="button" data-exp-tab="history">History</button>
-          </div>
-
           <div class="exp-panel active" id="expMatchesPanel">
-            <div class="exp-info-grid">
-              <section class="history-section" aria-label="RANKED history">
-                <div class="table-wrap">
-                  <table class="exp-match-table">
-                    <thead>
-                      <tr>
-                        <th>Date</th>
-                        <th>Map</th>
-                        <th>Team A</th>
-                        <th>Score</th>
-                        <th>Team B</th>
-                        <th>Result</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody id="expMatchesTableBody"></tbody>
-                  </table>
-                </div>
+            <div class="match-center-layout">
+              <section class="match-feed" aria-label="RANKED history">
+                <header class="match-feed-header">
+                  <div>
+                    <p class="panel-label">Live season</p>
+                    <h2>Match center</h2>
+                  </div>
+                  <span class="feed-tag">Ranked</span>
+                </header>
+
+                <div class="match-feed-list" id="expMatchesTableBody"></div>
 
                 <div class="empty-state" id="expEmptyState">
                   <strong>No matches generated yet.</strong>
@@ -343,50 +339,29 @@
                 </div>
               </section>
 
-              <aside class="map-section" aria-label="RANKED maps">
-                <div class="section-title">
+              <aside class="map-pool" aria-label="RANKED maps">
+                <header class="map-pool-header">
                   <div>
                     <p class="panel-label">RANKED rotation</p>
-                    <h2>Maps</h2>
+                    <h2>Map pool</h2>
                   </div>
-                </div>
-
-                <div class="table-wrap map-table-wrap">
-                  <table class="map-table">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Map</th>
-                        <th>Games</th>
-                      </tr>
-                    </thead>
-                    <tbody id="expMapsTableBody"></tbody>
-                  </table>
-                </div>
+                  <span>10 maps</span>
+                </header>
+                <div class="map-pool-list" id="expMapsTableBody"></div>
               </aside>
             </div>
           </div>
 
           <div class="exp-panel" id="expRankingPanel" hidden>
-            <article class="list-panel exp-ranking-panel">
-              <div class="table-wrap">
-                <table class="exp-ranking-table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Player</th>
-                      <th>Wins</th>
-                      <th>Win rate</th>
-                      <th>Kills</th>
-                      <th>KDA</th>
-                      <th>Score</th>
-                      <th>MVP</th>
-                      <th>GOATs</th>
-                    </tr>
-                  </thead>
-                  <tbody id="expRankingList"></tbody>
-                </table>
-              </div>
+            <article class="ranking-board">
+              <header class="ranking-board-header">
+                <div>
+                  <p class="panel-label">Season leaderboard</p>
+                  <h2>Player ranking</h2>
+                </div>
+                <span class="feed-tag">2026 / 3</span>
+              </header>
+              <div class="ranking-ladder" id="expRankingList"></div>
               <div class="empty-state compact" id="expRankingEmptyState">
                 <strong>No completed matches yet.</strong>
               </div>
@@ -394,6 +369,12 @@
           </div>
 
           <div class="exp-panel" id="expHistoryPanel" hidden>
+            <header class="history-board-header">
+              <div>
+                <p class="panel-label">Archive</p>
+                <h2>Season history</h2>
+              </div>
+            </header>
             <section class="season-history-grid" id="expSeasonGrid" aria-label="RANKED seasons"></section>
           </div>
         </section>
@@ -533,7 +514,8 @@
       <form method="dialog" class="dialog-shell">
         <button class="close-button" id="closeExpMatchBtn" type="button" aria-label="Close">x</button>
 
-        <header class="dialog-header">
+        <header class="dialog-header match-map-header">
+          <img class="match-dialog-map-image" id="expMatchMapImage" src="" alt="" />
           <div>
             <p class="panel-label">RANKED match</p>
             <h2 id="expMatchTitle">Map</h2>
@@ -655,6 +637,6 @@
       </form>
     </dialog>
 
-    <script src="app.js?v=20260923-rankedin"></script>
+    <script src="app.js?v=20260923-match-center"></script>
   </body>
 </html>

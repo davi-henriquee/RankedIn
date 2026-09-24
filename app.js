@@ -20,6 +20,20 @@ const maps = [
 
 const knownMaps = new Set([...maps, "train"]);
 
+const mapThumbnails = {
+  cache: "assets/maps/cache.png",
+  ancient: "assets/maps/ancient.webp",
+  anubis: "assets/maps/anubis.jpg",
+  "dust 2": "assets/maps/dust2.jpg",
+  inferno: "assets/maps/inferno.png",
+  mirage: "assets/maps/mirage.webp",
+  nuke: "assets/maps/nuke.jpg",
+  overpass: "assets/maps/overpass.webp",
+  train: "assets/maps/train.png",
+  tuscan: "assets/maps/tuscan.jpg",
+  vertigo: "assets/maps/vertigo.png",
+};
+
 const expPlayers = [
   { id: "pedro", name: "Pedro" },
   { id: "vinicius", name: "Vinicius" },
@@ -228,6 +242,7 @@ const elements = {
   expMatchDialog: document.querySelector("#expMatchDialog"),
   closeExpMatchBtn: document.querySelector("#closeExpMatchBtn"),
   expMatchTitle: document.querySelector("#expMatchTitle"),
+  expMatchMapImage: document.querySelector("#expMatchMapImage"),
   expTeamAList: document.querySelector("#expTeamAList"),
   expTeamBList: document.querySelector("#expTeamBList"),
   expStatsGrid: document.querySelector("#expStatsGrid"),
@@ -1463,13 +1478,18 @@ function renderExpMapsTable() {
   const counts = getExpMapCounts();
 
   maps.forEach((map, index) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td class="map-cell">${escapeHtml(map)}</td>
-      <td class="map-play-count">${counts.get(map)}</td>
+    const card = document.createElement("article");
+    card.className = "map-pool-card";
+    card.innerHTML = `
+      <img class="map-pool-thumb" src="${escapeHtml(getMapThumbnail(map))}" alt="" />
+      <div class="map-pool-shade" aria-hidden="true"></div>
+      <span class="map-pool-index">${String(index + 1).padStart(2, "0")}</span>
+      <div class="map-pool-copy">
+        <strong>${escapeHtml(map)}</strong>
+        <span>${counts.get(map)} ${counts.get(map) === 1 ? "match" : "matches"}</span>
+      </div>
     `;
-    elements.expMapsTableBody.appendChild(row);
+    elements.expMapsTableBody.appendChild(card);
   });
 }
 
@@ -1477,21 +1497,47 @@ function renderExpMatchesTable() {
   elements.expMatchesTableBody.innerHTML = "";
   elements.expEmptyState.style.display = state.exp.matches.length ? "none" : "block";
 
-  state.exp.matches.forEach((match) => {
-    const row = document.createElement("tr");
-    row.tabIndex = 0;
-    row.setAttribute("role", "button");
-    row.dataset.expMatch = match.id;
-    row.innerHTML = `
-      <td>${formatDate(match.createdAt)}</td>
-      <td class="map-cell">${escapeHtml(match.map)}</td>
-      <td class="team-cell">${escapeHtml(formatExpTeamNames(match.teamAIds, getExpGoatId(match)))}</td>
-      <td class="score-cell">${formatExpScore(match)}</td>
-      <td class="team-cell">${escapeHtml(formatExpTeamNames(match.teamBIds, getExpGoatId(match)))}</td>
-      <td>${formatExpResult(match)}</td>
-      <td>${formatStatus(match)}</td>
+  [...state.exp.matches]
+    .sort((matchA, matchB) => new Date(matchB.createdAt) - new Date(matchA.createdAt))
+    .forEach((match, index) => {
+    const card = document.createElement("article");
+    const resultClass = match.status === "completed" ? match.result : "pending";
+    card.className = `match-card result-${resultClass}`;
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.dataset.expMatch = match.id;
+    card.innerHTML = `
+      <div class="match-card-map">
+        <img class="match-card-thumb" src="${escapeHtml(getMapThumbnail(match.map))}" alt="" />
+        <span class="match-card-number">MATCH ${String(state.exp.matches.length - index).padStart(2, "0")}</span>
+        <div class="match-card-map-copy">
+          <strong>${escapeHtml(match.map)}</strong>
+          <span>${formatDate(match.createdAt)}</span>
+        </div>
+      </div>
+      <div class="match-card-content">
+        <div class="match-card-meta">
+          <span class="match-type">Ranked</span>
+          ${formatStatus(match)}
+        </div>
+        <div class="match-versus">
+          <div class="match-team team-a">
+            <span>Team A</span>
+            <strong>${escapeHtml(formatExpTeamNames(match.teamAIds))}</strong>
+          </div>
+          <div class="match-score-block">
+            <span>${match.status === "completed" ? escapeHtml(formatExpResult(match)) : "Awaiting result"}</span>
+            <strong>${escapeHtml(formatExpScore(match))}</strong>
+          </div>
+          <div class="match-team team-b">
+            <span>Team B</span>
+            <strong>${escapeHtml(formatExpTeamNames(match.teamBIds))}</strong>
+          </div>
+        </div>
+      </div>
+      <span class="match-card-arrow" aria-hidden="true">›</span>
     `;
-    elements.expMatchesTableBody.appendChild(row);
+    elements.expMatchesTableBody.appendChild(card);
   });
 }
 
@@ -1500,28 +1546,43 @@ function renderExpRanking() {
   elements.expRankingEmptyState.style.display = "none";
 
   getRankedExpPlayerStats().forEach((entry, index) => {
-    const row = document.createElement("tr");
-    row.tabIndex = 0;
-    row.setAttribute("role", "button");
-    row.dataset.expPlayerDetail = entry.player.id;
-    row.innerHTML = `
-      <td class="standing-position">#${index + 1}</td>
-      <td>
-        <div class="exp-ranking-player">
-          ${getExpPlayerPhotoMarkup(entry.player)}
+    const card = document.createElement("article");
+    card.className = `ranking-entry${index === 0 ? " ranking-leader" : ""}`;
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.dataset.expPlayerDetail = entry.player.id;
+    card.innerHTML = `
+      <div class="ranking-position">
+        <span>Rank</span>
+        <strong>#${index + 1}</strong>
+      </div>
+      <div class="ranking-player">
+        ${getExpPlayerPhotoMarkup(entry.player)}
+        <div>
+          <span>${index === 0 ? "Season leader" : "Ranked player"}</span>
           <strong>${escapeHtml(entry.player.name)}</strong>
         </div>
-      </td>
-      <td class="stat-number">${entry.wins}</td>
-      <td class="stat-number">${entry.winRate}%</td>
-      <td class="stat-number">${entry.kills}</td>
-      <td class="stat-number">${formatKda(entry.kda)}</td>
-      <td class="stat-number">${entry.score}</td>
-      <td class="stat-number">${entry.mvp}</td>
-      <td class="stat-number">${entry.goats}</td>
+      </div>
+      ${getRankingMetricMarkup("Wins", entry.wins, true)}
+      ${getRankingMetricMarkup("Win rate", `${entry.winRate}%`)}
+      ${getRankingMetricMarkup("Kills", entry.kills)}
+      ${getRankingMetricMarkup("KDA", formatKda(entry.kda))}
+      ${getRankingMetricMarkup("Score", entry.score)}
+      ${getRankingMetricMarkup("MVP", entry.mvp)}
+      ${getRankingMetricMarkup("GOATs", entry.goats)}
+      <span class="ranking-open" aria-hidden="true">›</span>
     `;
-    elements.expRankingList.appendChild(row);
+    elements.expRankingList.appendChild(card);
   });
+}
+
+function getRankingMetricMarkup(label, value, featured = false) {
+  return `
+    <div class="ranking-metric${featured ? " featured" : ""}">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value)}</strong>
+    </div>
+  `;
 }
 
 function renderExpSeasonHistory() {
@@ -1905,6 +1966,8 @@ function openExpMatch(matchId) {
 
 function renderExpMatchDialog(match) {
   elements.expMatchTitle.textContent = match.map;
+  elements.expMatchMapImage.src = getMapThumbnail(match.map);
+  elements.expMatchMapImage.alt = `${match.map} map`;
   elements.expTeamARoundsInput.value = match.teamARounds ?? "";
   elements.expTeamBRoundsInput.value = match.teamBRounds ?? "";
   renderExpStatsForm(match);
@@ -2452,7 +2515,12 @@ function renderExpPlayerHistory(playerId) {
   history.forEach((entry) => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td class="map-cell">${escapeHtml(entry.map)}${entry.isGoat ? getGoatStarMarkup() : ""}</td>
+      <td class="map-cell">
+        <div class="player-history-map">
+          <img src="${escapeHtml(getMapThumbnail(entry.map))}" alt="" loading="lazy" />
+          <strong>${escapeHtml(entry.map)}${entry.isGoat ? getGoatStarMarkup() : ""}</strong>
+        </div>
+      </td>
       <td class="score-cell">${entry.teamRounds}x${entry.enemyRounds}</td>
       <td class="stat-number">${entry.kills}</td>
       <td class="stat-number">${entry.assists}</td>
@@ -2566,6 +2634,10 @@ function getExpPlayer(playerId) {
 
 function getExpPlayerImage(playerId) {
   return state.exp.playerImages[playerId] ?? null;
+}
+
+function getMapThumbnail(map) {
+  return mapThumbnails[String(map).toLowerCase()] ?? "assets/dust2-double-doors.jpg";
 }
 
 function formatExpTeamNames(playerIds) {
