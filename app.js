@@ -40,11 +40,10 @@ const expPlayers = [
   { id: "vini", name: "Vini" },
   { id: "davi", name: "Davi" },
   { id: "cicero", name: "Cícero" },
-];
-
-const archivedExpPlayers = [
   { id: "mathiussi", name: "Mathiussi" },
 ];
+
+const archivedExpPlayers = [];
 
 const rankedPlayerDirectory = [...expPlayers, ...archivedExpPlayers];
 
