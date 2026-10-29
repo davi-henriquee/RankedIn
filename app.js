@@ -1,6 +1,9 @@
 const STORAGE_KEY = "cs2-bot-premier-tracker-v1";
 const BACKUP_VERSION = 1;
 const STATIC_STATE_URL = "exp.json";
+const RANKED_SEASON_HISTORY_URLS = {
+  "2026-2": "history/2026-2.json",
+};
 const MAX_PLAYER_OVERALL = 140;
 const COMPETITIVE_TEAM_COUNT = 16;
 const SWISS_TARGET_RECORD = 3;
@@ -130,6 +133,7 @@ let selectedCompetitiveMatchId = null;
 let activeExpTab = "matches";
 let selectedExpMatchId = null;
 let selectedExpPlayerId = null;
+let rankedSeasonArchives = {};
 
 const elements = {
   appTabs: document.querySelectorAll(".app-tab"),
@@ -253,7 +257,9 @@ const elements = {
   saveExpMatchBtn: document.querySelector("#saveExpMatchBtn"),
   expPlayerDetailDialog: document.querySelector("#expPlayerDetailDialog"),
   closeExpPlayerDetailBtn: document.querySelector("#closeExpPlayerDetailBtn"),
+  expPlayerHero: document.querySelector("#expPlayerHero"),
   expPlayerDetailName: document.querySelector("#expPlayerDetailName"),
+  expPlayerBestMap: document.querySelector("#expPlayerBestMap"),
   expPlayerDetailStats: document.querySelector("#expPlayerDetailStats"),
   expPlayerMapStats: document.querySelector("#expPlayerMapStats"),
   expPlayerHistoryBody: document.querySelector("#expPlayerHistoryBody"),
@@ -379,6 +385,7 @@ elements.matchDialog.addEventListener("click", (event) => {
 
 render();
 initializeStaticState();
+initializeRankedSeasonArchives();
 
 function loadState() {
   try {
@@ -595,6 +602,27 @@ async function initializeStaticState() {
   } catch (error) {
     console.warn(`${STATIC_STATE_URL} unavailable or invalid. Using local data.`, error);
   }
+}
+
+async function initializeRankedSeasonArchives() {
+  const archives = await Promise.all(
+    Object.entries(RANKED_SEASON_HISTORY_URLS).map(async ([seasonId, historyUrl]) => {
+      try {
+        const response = await fetch(`${historyUrl}?ts=${Date.now()}`, { cache: "no-store" });
+        if (!response.ok) return null;
+
+        const payload = await response.json();
+        const archiveState = normalizeStatePayload(payload);
+        return [seasonId, archiveState.exp.matches];
+      } catch (error) {
+        console.warn(`${historyUrl} unavailable or invalid.`, error);
+        return null;
+      }
+    }),
+  );
+
+  rankedSeasonArchives = Object.fromEntries(archives.filter(Boolean));
+  renderExpSeasonHistory();
 }
 
 function normalizeExp(exp) {
@@ -1609,21 +1637,29 @@ function renderExpSeasonHistory() {
         : getArchivedExpSeasonStandings(season.id);
       const cardClass = season.current ? "current" : "completed";
       const hasAwards = Boolean(rankedSeasonAwards[season.id]);
+      const championMap = getSeasonChampionBestScoreMap(season, standings);
       const interactionAttributes = hasAwards
         ? `role="button" tabindex="0" data-season-awards="${escapeHtml(season.id)}" aria-label="Open ${escapeHtml(season.label)} awards"`
+        : "";
+      const mapStyle = championMap
+        ? `style="--season-map-image: url('${escapeHtml(getMapThumbnail(championMap))}')"`
         : "";
 
       return `
         <article
-          class="season-card ${cardClass} ${hasAwards ? "has-awards" : ""}"
+          class="season-card ${cardClass} ${hasAwards ? "has-awards" : ""} ${championMap ? "has-map-art" : ""}"
           ${interactionAttributes}
+          ${mapStyle}
         >
           <header class="season-card-header">
             <div>
               <p class="panel-label">Season</p>
               <h3>${escapeHtml(season.label)}</h3>
             </div>
-            <span class="season-status">${season.current ? "Current" : "Completed"}</span>
+            <div class="season-card-badges">
+              <span class="season-status">${season.current ? "Current" : "Completed"}</span>
+              ${championMap ? `<span class="season-map-tag">${season.current ? "Leader" : "Champion"} map · ${escapeHtml(championMap)}</span>` : ""}
+            </div>
           </header>
           <div class="season-player-list">
             ${standings.map((entry, index) => `
@@ -1639,6 +1675,17 @@ function renderExpSeasonHistory() {
       `;
     })
     .join("");
+}
+
+function getSeasonChampionBestScoreMap(season, standings) {
+  const championId = standings[0]?.player?.id;
+  if (!championId) return null;
+
+  const seasonMatches = season.current
+    ? state.exp.matches
+    : rankedSeasonArchives[season.id] ?? [];
+
+  return calculateExpPlayerMapPerformance(championId, seasonMatches).bestScore?.map ?? null;
 }
 
 function getArchivedExpSeasonStandings(seasonId) {
@@ -2373,8 +2420,11 @@ function openExpPlayerDetail(playerId) {
 function renderExpPlayerDetail() {
   const stats = calculateExpPlayerStats(selectedExpPlayerId);
   if (!stats.player) return;
+  const mapPerformance = calculateExpPlayerMapPerformance(selectedExpPlayerId);
+  const bestScoreMap = mapPerformance.bestScore?.map ?? null;
 
   elements.expPlayerDetailName.textContent = stats.player.name;
+  renderExpPlayerHeroMap(bestScoreMap);
   renderExpPlayerPhoto(stats.player);
   elements.expPlayerDetailStats.innerHTML = `
     ${getExpDetailSectionMarkup([
@@ -2395,12 +2445,25 @@ function renderExpPlayerDetail() {
       ["MVP", stats.mvp],
     ])}
   `;
-  renderExpPlayerMapPerformance(selectedExpPlayerId);
+  renderExpPlayerMapPerformance(selectedExpPlayerId, mapPerformance);
   renderExpPlayerHistory(selectedExpPlayerId);
 }
 
-function renderExpPlayerMapPerformance(playerId) {
-  const performance = calculateExpPlayerMapPerformance(playerId);
+function renderExpPlayerHeroMap(map) {
+  elements.expPlayerHero.classList.toggle("has-map-art", Boolean(map));
+  elements.expPlayerBestMap.hidden = !map;
+
+  if (!map) {
+    elements.expPlayerHero.style.removeProperty("--player-map-image");
+    elements.expPlayerBestMap.textContent = "";
+    return;
+  }
+
+  elements.expPlayerHero.style.setProperty("--player-map-image", `url("${getMapThumbnail(map)}")`);
+  elements.expPlayerBestMap.textContent = `Best score map · ${map}`;
+}
+
+function renderExpPlayerMapPerformance(playerId, performance = calculateExpPlayerMapPerformance(playerId)) {
   const mapItems = [
     ["Best map (KDA)", performance.bestKda, "kda"],
     ["Best map (Score)", performance.bestScore, "score"],
@@ -2413,10 +2476,10 @@ function renderExpPlayerMapPerformance(playerId) {
     .join("");
 }
 
-function calculateExpPlayerMapPerformance(playerId) {
+function calculateExpPlayerMapPerformance(playerId, matches = state.exp.matches) {
   const totalsByMap = new Map();
 
-  state.exp.matches.forEach((match) => {
+  matches.forEach((match) => {
     if (match.status !== "completed") return;
     if (!match.teamAIds.includes(playerId) && !match.teamBIds.includes(playerId)) return;
 

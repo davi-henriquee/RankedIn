@@ -6,7 +6,7 @@
     <title>RankedIn</title>
     <link rel="icon" type="image/png" href="assets/rankedin-logo-transparent.png?v=20260924" />
     <link rel="stylesheet" href="styles.css?v=20260923-rankedin-white" />
-    <link rel="stylesheet" href="cs2-theme.css?v=20260924-brand" />
+    <link rel="stylesheet" href="cs2-theme.css?v=20261029-map-backgrounds" />
   </head>
   <body>
     <main class="app-shell">
@@ -568,11 +568,12 @@
     <dialog class="match-dialog exp-player-dialog" id="expPlayerDetailDialog">
       <form method="dialog" class="dialog-shell">
         <button class="close-button" id="closeExpPlayerDetailBtn" type="button" aria-label="Close">x</button>
-        <header class="exp-player-hero">
+        <header class="exp-player-hero" id="expPlayerHero">
           <div class="exp-player-photo" id="expPlayerPhotoPreview"></div>
           <div class="exp-player-hero-main">
             <p class="panel-label">RANKED player</p>
             <h2 id="expPlayerDetailName">Player</h2>
+            <span class="player-best-map" id="expPlayerBestMap" hidden></span>
             <div class="exp-player-actions">
               <button class="secondary-action" id="uploadExpPlayerPhotoBtn" type="button">Upload photo</button>
               <button class="ghost-action" id="removeExpPlayerPhotoBtn" type="button">Remove photo</button>
@@ -635,6 +636,6 @@
       </form>
     </dialog>
 
-    <script src="app.js?v=20260924-brand"></script>
+    <script src="app.js?v=20261029-map-backgrounds"></script>
   </body>
 </html>

@@ -641,6 +641,18 @@ tbody tr td:first-child {
     url("assets/dust2-double-doors.jpg") center top / cover;
 }
 
+.season-card.has-map-art,
+.season-card.current.has-map-art {
+  background:
+    linear-gradient(180deg, rgba(7, 10, 15, 0.5), rgba(10, 14, 20, 0.88) 58%, rgba(10, 14, 20, 0.97)),
+    var(--season-map-image) center / cover;
+}
+
+.season-card.has-map-art .season-card-header {
+  background: rgba(10, 14, 20, 0.7);
+  backdrop-filter: blur(3px);
+}
+
 .season-card.upcoming {
   background: #121720;
 }
@@ -664,6 +676,24 @@ tbody tr td:first-child {
 .season-card-header h3 {
   font-family: "Stratum2 Condensed", "Arial Narrow", sans-serif;
   font-size: 2.2rem;
+}
+
+.season-card-badges {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.season-map-tag {
+  max-width: 190px;
+  color: #ffffff;
+  font-family: "Stratum2 Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: right;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px #000000;
 }
 
 .season-status,
@@ -901,6 +931,13 @@ input[type="number"]::-webkit-outer-spin-button {
   background-size: cover;
 }
 
+.exp-player-hero.has-map-art {
+  background:
+    linear-gradient(90deg, rgba(7, 10, 15, 0.76), rgba(7, 10, 15, 0.48) 56%, rgba(7, 10, 15, 0.82)),
+    linear-gradient(0deg, rgba(7, 10, 15, 0.72), transparent 62%),
+    var(--player-map-image) center / cover;
+}
+
 .exp-player-photo {
   width: 146px;
   border: 3px solid var(--accent);
@@ -913,6 +950,29 @@ input[type="number"]::-webkit-outer-spin-button {
 .exp-player-hero-main h2 {
   font-family: "Stratum2 Condensed", "Arial Narrow", sans-serif;
   font-size: 3.4rem;
+}
+
+.player-best-map {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 0 9px;
+  border: 1px solid rgba(241, 139, 6, 0.58);
+  color: #ffffff;
+  background: rgba(9, 12, 18, 0.64);
+  font-family: "Stratum2 Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px #000000;
+}
+
+.player-best-map[hidden] {
+  display: none;
+}
+
+.player-best-map + .exp-player-actions {
+  margin-top: 10px;
 }
 
 .exp-detail-section + .exp-detail-section::before {
