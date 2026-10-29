@@ -4,23 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RankedIn</title>
-    <link rel="icon" type="image/png" href="assets/rankedin-logo-transparent.png?v=20260924" />
+    <link rel="icon" type="image/png" href="assets/rankedin-favicon.png?v=20261029" />
     <link rel="stylesheet" href="styles.css?v=20260923-rankedin-white" />
-    <link rel="stylesheet" href="cs2-theme.css?v=20261029-map-backgrounds" />
+    <link rel="stylesheet" href="cs2-theme.css?v=20261029-brand-assets" />
   </head>
   <body>
     <main class="app-shell">
       <section class="topbar" aria-label="RankedIn match center">
         <div class="site-nav">
           <div class="site-nav-mark">
-            <img
-              class="brand-logo"
-              src="assets/rankedin-logo-transparent.png?v=20260924"
-              alt="RankedIn"
-              width="54"
-              height="54"
-            />
-            <h1>RankedIn</h1>
+            <picture class="site-brand-picture">
+              <source media="(max-width: 420px)" srcset="assets/rankedin-favicon.png?v=20261029" />
+              <img
+                class="site-brand-lockup"
+                src="assets/rankedin-site-logo.png?v=20261029"
+                alt=""
+              />
+            </picture>
+            <h1 class="visually-hidden">RankedIn</h1>
           </div>
 
           <div class="section-actions hero-actions">
