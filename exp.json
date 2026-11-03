@@ -1,7 +1,7 @@
 {
   "app": "RankedIn",
   "version": 1,
-  "exportedAt": "2026-10-30T16:03:25.319Z",
+  "exportedAt": "2026-11-03T16:02:28.569Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -14,6 +14,69 @@
     },
     "exp": {
       "matches": [
+        {
+          "id": "48798cbb-e4e7-4308-9d6c-45a7d25e1f7f",
+          "createdAt": "2026-11-03T16:02:13.907Z",
+          "map": "vertigo",
+          "teamAIds": [
+            "vinicius",
+            "vini",
+            "cicero"
+          ],
+          "teamBIds": [
+            "pedro",
+            "davi",
+            "mathiussi"
+          ],
+          "status": "pending",
+          "result": null,
+          "teamARounds": null,
+          "teamBRounds": null,
+          "playerStats": {
+            "vinicius": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "vini": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "cicero": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "pedro": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "davi": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "mathiussi": {
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            }
+          }
+        },
         {
           "id": "c09e963c-115b-4bf2-b6b9-61d0052c11de",
           "createdAt": "2026-10-30T16:02:59.529Z",
@@ -28,52 +91,52 @@
             "vini",
             "davi"
           ],
-          "status": "pending",
-          "result": null,
-          "teamARounds": null,
-          "teamBRounds": null,
+          "status": "completed",
+          "result": "teamB",
+          "teamARounds": 9,
+          "teamBRounds": 13,
           "playerStats": {
             "vinicius": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 10,
+              "deaths": 16,
+              "assists": 2,
+              "mvp": 1,
+              "score": 30
             },
             "cicero": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 14,
+              "deaths": 15,
+              "assists": 3,
+              "mvp": 1,
+              "score": 35
             },
             "mathiussi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 10,
+              "deaths": 17,
+              "assists": 2,
+              "mvp": 3,
+              "score": 26
             },
             "pedro": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
+              "kills": 10,
+              "deaths": 17,
+              "assists": 3,
               "mvp": 0,
-              "score": 0
+              "score": 27
             },
             "vini": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 34,
+              "deaths": 12,
+              "assists": 6,
+              "mvp": 4,
+              "score": 80
             },
             "davi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 28,
+              "deaths": 14,
+              "assists": 2,
+              "mvp": 7,
+              "score": 66
             }
           }
         },
