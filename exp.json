@@ -1,7 +1,7 @@
 {
   "app": "RankedIn",
   "version": 1,
-  "exportedAt": "2026-11-03T16:02:28.569Z",
+  "exportedAt": "2026-11-04T15:52:04.812Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -15,65 +15,49 @@
     "exp": {
       "matches": [
         {
-          "id": "48798cbb-e4e7-4308-9d6c-45a7d25e1f7f",
-          "createdAt": "2026-11-03T16:02:13.907Z",
+          "id": "d9414ed9-1112-452a-8d60-5831fef44d98",
+          "createdAt": "2026-11-04T15:20:56.940Z",
           "map": "vertigo",
           "teamAIds": [
-            "vinicius",
-            "vini",
-            "cicero"
+            "pedro",
+            "vinicius"
           ],
           "teamBIds": [
-            "pedro",
             "davi",
             "mathiussi"
           ],
-          "status": "pending",
-          "result": null,
-          "teamARounds": null,
-          "teamBRounds": null,
+          "status": "completed",
+          "result": "teamB",
+          "teamARounds": 3,
+          "teamBRounds": 13,
           "playerStats": {
-            "vinicius": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "vini": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
-            "cicero": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
-            },
             "pedro": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
+              "kills": 5,
+              "deaths": 12,
+              "assists": 4,
+              "mvp": 1,
+              "score": 18
+            },
+            "vinicius": {
+              "kills": 3,
+              "deaths": 13,
+              "assists": 2,
               "mvp": 0,
-              "score": 0
+              "score": 11
             },
             "davi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 14,
+              "deaths": 7,
+              "assists": 4,
+              "mvp": 3,
+              "score": 40
             },
             "mathiussi": {
-              "kills": 0,
-              "deaths": 0,
-              "assists": 0,
-              "mvp": 0,
-              "score": 0
+              "kills": 10,
+              "deaths": 11,
+              "assists": 4,
+              "mvp": 1,
+              "score": 27
             }
           }
         },
