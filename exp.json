@@ -1,7 +1,7 @@
 {
   "app": "RankedIn",
   "version": 1,
-  "exportedAt": "2026-11-04T15:52:04.812Z",
+  "exportedAt": "2026-11-05T16:06:56.481Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -14,6 +14,69 @@
     },
     "exp": {
       "matches": [
+        {
+          "id": "5942eda8-62ba-4d8d-9116-179b385ef7a8",
+          "createdAt": "2026-11-05T14:27:54.325Z",
+          "map": "mirage",
+          "teamAIds": [
+            "pedro",
+            "vinicius",
+            "vini"
+          ],
+          "teamBIds": [
+            "davi",
+            "cicero",
+            "mathiussi"
+          ],
+          "status": "completed",
+          "result": "teamB",
+          "teamARounds": 2,
+          "teamBRounds": 13,
+          "playerStats": {
+            "pedro": {
+              "kills": 5,
+              "deaths": 13,
+              "assists": 3,
+              "mvp": 0,
+              "score": 15
+            },
+            "vinicius": {
+              "kills": 6,
+              "deaths": 12,
+              "assists": 3,
+              "mvp": 0,
+              "score": 19
+            },
+            "vini": {
+              "kills": 0,
+              "deaths": 10,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "davi": {
+              "kills": 17,
+              "deaths": 6,
+              "assists": 4,
+              "mvp": 5,
+              "score": 52
+            },
+            "cicero": {
+              "kills": 9,
+              "deaths": 9,
+              "assists": 5,
+              "mvp": 2,
+              "score": 29
+            },
+            "mathiussi": {
+              "kills": 4,
+              "deaths": 6,
+              "assists": 3,
+              "mvp": 0,
+              "score": 13
+            }
+          }
+        },
         {
           "id": "d9414ed9-1112-452a-8d60-5831fef44d98",
           "createdAt": "2026-11-04T15:20:56.940Z",
