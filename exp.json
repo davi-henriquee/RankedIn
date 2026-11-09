@@ -1,7 +1,7 @@
 {
   "app": "RankedIn",
   "version": 1,
-  "exportedAt": "2026-11-05T16:06:56.481Z",
+  "exportedAt": "2026-11-09T16:08:06.643Z",
   "data": {
     "baseRating": 0,
     "matches": [],
@@ -14,6 +14,53 @@
     },
     "exp": {
       "matches": [
+        {
+          "id": "2c0a8ea5-b807-4939-ac40-b0701cd0a653",
+          "createdAt": "2026-11-09T16:07:08.085Z",
+          "map": "anubis",
+          "teamAIds": [
+            "vini",
+            "mathiussi"
+          ],
+          "teamBIds": [
+            "davi",
+            "pedro"
+          ],
+          "status": "completed",
+          "result": "teamB",
+          "teamARounds": 3,
+          "teamBRounds": 13,
+          "playerStats": {
+            "vini": {
+              "kills": 0,
+              "deaths": 10,
+              "assists": 0,
+              "mvp": 0,
+              "score": 0
+            },
+            "mathiussi": {
+              "kills": 8,
+              "deaths": 14,
+              "assists": 1,
+              "mvp": 0,
+              "score": 19
+            },
+            "davi": {
+              "kills": 15,
+              "deaths": 5,
+              "assists": 4,
+              "mvp": 5,
+              "score": 45
+            },
+            "pedro": {
+              "kills": 6,
+              "deaths": 9,
+              "assists": 3,
+              "mvp": 1,
+              "score": 19
+            }
+          }
+        },
         {
           "id": "5942eda8-62ba-4d8d-9116-179b385ef7a8",
           "createdAt": "2026-11-05T14:27:54.325Z",
